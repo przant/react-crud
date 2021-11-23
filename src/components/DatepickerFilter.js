@@ -10,7 +10,7 @@ export const Datepicker = ({ dateRequest, setDateRequest, handleClick }) => {
             <input
                 type="date"
                 className="form-control"
-                placeholder="Username"
+                placeholder="20/07/1990"
                 value={ dateRequest }
                 onChange={handleChange}
             />

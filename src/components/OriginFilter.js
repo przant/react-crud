@@ -11,7 +11,7 @@ export const InputText = ({ userInput, setUserInput, handleClick }) => {
             <input
                 type="text"
                 className="form-control"
-                placeholder="Username"
+                placeholder="IdOrigen a buscar . . . "
                 value={userInput}
                 onChange={handleChange}
             />

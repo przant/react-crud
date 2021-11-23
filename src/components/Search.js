@@ -8,7 +8,7 @@ export const Search = ({data, setItems}) => {
     const [dateRequest, setDateRequest] = useState(Date.now);
 
 
-    const [originFilter, setOriginFilter] = useState(false);
+    const [originFilter, setOriginFilter] = useState(true);
     const [dateFilter, setDateFilter] = useState(false);
 
     const handleCheckBoxChange = (cb) => {
@@ -29,7 +29,6 @@ export const Search = ({data, setItems}) => {
 
     const handleClick = () => {
         if (originFilter && !dateFilter) {
-            console.log(userInput, typeof(userInput));
             const dataByOrigin = data.filter( item => item.IdOrigen === userInput);
             setItems(dataByOrigin);
         }
@@ -43,7 +42,7 @@ export const Search = ({data, setItems}) => {
     return (
         <div className="row mt-3">
             {
-                originFilter && dateFilter ? <div className="alert alert-warning" role="alert">Usar solo un filtro a la vez</div>: null
+                originFilter && dateFilter ? <div className="alert alert-warning my-3" role="alert">Usar solo un filtro a la vez</div>: null
             }
             <div className="input-group mt-3">
                 <div className="input-group-text">
@@ -51,7 +50,7 @@ export const Search = ({data, setItems}) => {
                         <input
                             id="origin-cb"
                             type="checkbox"
-                            defaultChecked={false}
+                            defaultChecked={originFilter}
                             value={originFilter}
                             onChange={handleCheckBoxChange}
                         />
