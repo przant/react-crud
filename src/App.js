@@ -11,7 +11,7 @@ function App({ data }) {
     <div className="container">
       <Title />
 
-      <Search />
+      <Search data={data} setItems={setItems} />
       
       <Table items={items}/>
     </div>

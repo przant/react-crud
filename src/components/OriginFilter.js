@@ -16,11 +16,11 @@ export const InputText = ({ userInput, setUserInput, handleClick }) => {
                 onChange={handleChange}
             />
             <button 
-                class="btn btn-outline-secondary" 
+                className="btn btn-outline-secondary" 
                 type="button" 
                 onClick={handleClick}
             >
-                Button
+                Buscar
             </button>
         </>
     )

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { InputText } from './OriginFilter';
 import { Datepicker } from './DatepickerFilter';
 
-export const Search = ({ handleTableBody }) => {
+export const Search = ({data, setItems}) => {
 
     const [userInput, setUserInput] = useState("");
     const [dateRequest, setDateRequest] = useState(Date.now);
@@ -21,14 +21,29 @@ export const Search = ({ handleTableBody }) => {
         }
     }
 
+    useEffect( () =>{
+        if( !originFilter && !dateFilter) {
+            setItems(data);
+        }
+    }, [originFilter, dateFilter, data, setItems]);
+
     const handleClick = () => {
-        
+        if (originFilter && !dateFilter) {
+            console.log(userInput, typeof(userInput));
+            const dataByOrigin = data.filter( item => item.IdOrigen === userInput);
+            setItems(dataByOrigin);
+        }
+
+        if (dateFilter && !originFilter) {
+            const dataByDateRequest = data.filter( item => item.FechaSolicitud === dateRequest);
+            setItems(dataByDateRequest);
+        }
     }
 
     return (
         <div className="row mt-3">
             {
-                originFilter && dateFilter ? <div class="alert alert-warning" role="alert">Usar solo un filtro a la vez</div> : null
+                originFilter && dateFilter ? <div className="alert alert-warning" role="alert">Usar solo un filtro a la vez</div>: null
             }
             <div className="input-group mt-3">
                 <div className="input-group-text">

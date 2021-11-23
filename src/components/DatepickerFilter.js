@@ -19,7 +19,7 @@ export const Datepicker = ({ dateRequest, setDateRequest, handleClick }) => {
                 type="button"
                 onClick={handleClick}
             >
-                Button
+                Buscar
             </button>
         </>
     )
